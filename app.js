@@ -223,7 +223,7 @@ function findNextIndex(currentIndex, array) {
 }
 
 function animate() {
-	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px; margin-left: 5vw;"></div>');
   
   $('#curtain').width($('#resultTable').width());
   $('#curtain').css({left: $('#resultTable').position().left});
@@ -237,14 +237,14 @@ function animate() {
   var distance = $("#curtain").css("width");
   
   animationStep(sum, 0);
-  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+  jQuery('#curtain').animate({ width: '5vw', marginLeft: distance}, sum*1000/2, 'linear');
 }
 
 function animationStep(steps, cur) {
 	$('#timer').html(cur);
 	if(cur < steps) {
 		setTimeout(function(){ 
-   	     animationStep(steps, cur + 1);
+   	     animationStep(steps, cur + 2);
   	}, 500);
   }
   else {
@@ -321,7 +321,7 @@ function draw() {
       td += '<td>' + value.executeTime + '</td>';
     });
 
-    $('fresh').html('<table id="resultTable" style="width: 70%"><tr>'
+    $('fresh').html('<table id="resultTable" style="width: 70%;"><tr>'
                     + th
                     + '</tr><tr>'
                     + td
